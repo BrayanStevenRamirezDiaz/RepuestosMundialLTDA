@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Nomina</title>
+    <link rel="stylesheet" href="../css/proyecto - copia.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navegacion">
+        <div class="primero">
+            <a href=""><img class="logo" src="../img/logo_pequeñito-sin fondo.png" alt="logo"></a>
+        </div>
+        <div class="segundo">
+            <ul class="listanavegacion">
+                <a class="letrasnavegacion" href="">Areas</a>
+                <a class="letrasnavegacion" href="">Cargos</a>
+                <a class="letrasnavegacion" href="">Datos Del Empleado</a>
+                <a class="letrasnavegacion" href="">Datos De Nomina</a>
+                <a class="letrasnavegacion" href="">Liquidacion</a>
+            </ul>
+        </div>
+        <div class="tercer">
+            <a href=""><img class="pequeños" src="../img/lupa blanca.png" alt="buscar"></a>
+            <a href=""><img class="pequeños" src="../img/persona blanca.png" alt="login"></a>
+            <a class="letrasnavegacion1" href="">ACERCA DE ...</a>
+        </div>
+    </nav>
+
+    <section class="mitad">
+        <article>
+                <div class="encima" id="mover">
+                    <article class="primeroadentro" id="mover1">
+                        <ul class="navboton">
+                            <button id="boton1" onclick="mostrarventanagrande1(),experimento(),cerrarboton2(),cerrarboton3()" class="botones">AGREGAR EMPLEADO</button>
+                            <button id="boton2" onclick="mostrarventanagrande2(),experimento(),cerrarboton1(),cerrarboton3()" class="botones">MODIFICAR EMPLEADO</button>
+                            <button id="boton3" onclick="mostrarventanagrande(),experimento(),cerrarboton1(),cerrarboton2()"  class="botones">CONSULTAR EMPLEADO</button>
+                        </ul>
+                    </article>
+
+                    <article id="ventana" class="cuadroadentro">
+                        <ul class="navboton1">
+                            <button onclick="mostrarbuscardocumento(),experimento2(),cerrarbuscarcontacto(),cerrarbuscarnombre(),cerrarbuscarcorreo()" class="botones1">Consultar por documento</button>
+
+                            <button onclick="mostrarbuscarnombre(),experimento2(),cerrarbuscarcontacto(),cerrarbuscardocumento(),cerrarbuscarcorreo()" class="botones1">Consultar por nombre</button>
+
+                            <button onclick="mostrarbuscarcorreo(),experimento2(),cerrarbuscarcontacto(),cerrarbuscarnombre(),cerrarbuscardocumento()" class="botones1">Consultar por correo</button>
+
+                            <button onclick="mostrarbuscarcontacto(),experimento2(),cerrarbuscarnombre(),cerrarbuscardocumento(),cerrarbuscarcorreo()" class="botones1">Consultar por contacto</button>
+
+                        </ul>
+
+
+
+                        <button onclick="cerrarventanagrande(), mostrarboton1(), mostrarboton2(),experimento1()" class="volver"><img src="../img/volver.png" alt="volver" class="imgvolver"></button>
+
+                        <article id="busquedadocumento" class="busquedas">
+                            <label class="letrasformularios" for="documento">Numero de documento:</label>   
+                            <input class="cuadroformulario" type="number" id="buscardocumento" name="documento"  required>
+                            <button class="botonbuscar" type="button" onclick="consxdocu()">-BUSCAR-</button>
+                        </article>
+
+                        <article id="busquedanombre" class="busquedas">
+                            <label class="letrasformularios" for="nombres">Nombres:</label>   
+                            <input class="cuadroformulario" type="text" id="nombres" name="nombres" required> 
+                            <button class="botonbuscar" type="button" onclick="consxnom()">-BUSCAR-</button>
+                        </article>
+
+                        <article id="busquedacorreo" class="busquedas">  
+                            <label class="letrasformularios" for="correo">Correo:</label>
+                            <input class="cuadroformulario" type="email" id="correo" name="correo" required>
+                            <button class="botonbuscar" type="button" onclick="consxcorreo()">-BUSCAR-</button>
+                        </article>
+
+
+                        <article id="busquedacontacto" class="busquedas">
+                            <label class="letrasformularios" for="contacto">Contacto:</label>   
+                            <input class="cuadroformulario" type="tel" id="contacto" name="contacto" required>
+                            <button class="botonbuscar" type="button" onclick="consxcontacto()">-BUSCAR-</button>
+                        </article>
+                        <article id="listadocumento">
+
+                        </article>
+
+
+
+
+
+                    </article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <article id="ventana1" class="cuadroadentro">
+                        <form class="formulario">
+                            <div class="divformu1">
+                                <label class="letrasformularios" for="tipodoc">Tipo de documento:</label>   
+                                <input class="cuadroformulario" type="text" id="tipodoc" name="tipodoc" placeholder="DOCUMENTO" required>   
+
+                                <label class="letrasformularios" for="documento">Numero de documento:</label>   
+                                <input class="cuadroformulario" type="number" id="documento" name="documento" placeholder="NUMERO DE DOCUMENTO" required>   
+                            </div>
+                            
+                            <div class="divformu1">
+                                <label class="letrasformularios" for="nombres">Nombres:</label>   
+                                <input class="cuadroformulario" type="text" id="nombres" name="nombres" placeholder="NOMBRES" required>   
+
+                                <label class="letrasformularios" for="apellidos">Apellidos:</label>   
+                                <input class="cuadroformulario" type="text" id="apellidos" name="apellidos" placeholder="APELLIDOS" required>   
+                            </div>
+
+                            <div class="divformu">
+                                <label class="letrasformularios" for="genero">Genero:</label>   
+                                <input class="cuadroformulario" type="text" id="genero" name="genero" placeholder="GENERO" required>   
+                            </div>
+
+                            <div class="divformu">
+                                <label class="letrasformularios" for="nacimiento">Fecha de nacimiento:</label>   
+                                <input class="cuadroformulario" type="date" id="nacimiento" name="nacimiento" placeholder="NACIMIENTO" required>   
+                            </div>
+
+                            <div class="divformu1">
+                                <label class="letrasformularios" for="area">Area:</label>   
+                                <input class="cuadroformulario" type="number" id="area" name="area" placeholder="AREA" required>   
+
+                                <label class="letrasformularios" for="cargo">Cargo:</label>
+                                <input class="cuadroformulario" type="number" id="cargo" name="cargo" placeholder="CARGO" required>   
+                            </div>
+
+                            <div class="divformu">
+                                <label class="letrasformularios" for="salario">Salario:</label>   
+                                <input class="cuadroformulario" type="number" id="salario" name="salario" placeholder="SALARIO" required>   
+                            </div>
+
+                            <div class="divformu1">
+                                <label class="letrasformularios" for="correo">Correo:</label>   
+                                <input class="cuadroformulario" type="email" id="correo" name="correo" placeholder="CORREO" required>   
+                            
+                                <label class="letrasformularios" for="contacto">Contacto:</label>   
+                                <input class="cuadroformulario" type="tel" id="contacto" name="contacto" placeholder="CONTACTO" required>       
+                            </div>
+
+                            <div class="divformu">
+                            <label class="letrasformularios" for="estado">Estado</label>   
+                            <input class="cuadroformulario" type="text" id="estado" name="estado" placeholder="ESTADO" required>
+                            </div>
+
+                            <div class="acomodar">
+                                <button class="botones2" type="button" onclick="agregar(),agregarempleado()">Agregar empleado</button>
+                            </div>
+                        </form>
+
+                        <button onclick="cerrarventanagrande1(), mostrarboton2(), mostrarboton3(),experimento1()" class="volver"><img src="../img/volver.png" alt="volver" class="imgvolver"></button>
+                    </article>
+
+                    <article id="ventana2" class="cuadroadentro">
+                        <button onclick="cerrarventanagrande2(), mostrarboton1(), mostrarboton3(),experimento1()" class="volver"><img src="../img/volver.png" alt="volver" class="imgvolver"></button>
+                    </article>
+                </div>
+        </article>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="../js/proyecto.js"></script>
+</body>
+</html>
