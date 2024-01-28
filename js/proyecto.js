@@ -104,7 +104,10 @@ function cerrarboton3(){
 }
 
 function mostrarbuscardocumento(){
-    document.getElementById("busquedadocumento").style.display = "block";
+    document.getElementById("busquedadocumento").style.display = "block";  
+    let listas1 =document.getElementById("listadocumento");                     ///ESTAS DOS LINEAS DE CODIGO BORRAN LA INFOMACION AL HACER 
+    listas1.innerHTML = "";                                                     ///CLICK EN LOS BOTONES
+    
 }
 
 function cerrarbuscardocumento(){
@@ -113,6 +116,8 @@ function cerrarbuscardocumento(){
 
 function mostrarbuscarnombre(){
     document.getElementById("busquedanombre").style.display = "block";
+    let listas1 =document.getElementById("listadocumento");                     ///ESTAS DOS LINEAS DE CODIGO BORRAN LA INFOMACION AL HACER 
+    listas1.innerHTML = "";                                                     ///CLICK EN LOS BOTONES
 }
 
 function cerrarbuscarnombre(){
@@ -120,7 +125,9 @@ function cerrarbuscarnombre(){
 }
 
 function mostrarbuscarcorreo(){
-    document.getElementById("busquedacorreo").style.display = "block";
+    document.getElementById("busquedacorreo").style.display = "block";         
+    let listas1 =document.getElementById("listadocumento");                     ///ESTAS DOS LINEAS DE CODIGO BORRAN LA INFOMACION AL HACER 
+    listas1.innerHTML = "";                                                    ///CLICK EN LOS BOTONES
 }
 
 function cerrarbuscarcorreo(){
@@ -129,11 +136,28 @@ function cerrarbuscarcorreo(){
 
 function mostrarbuscarcontacto(){
     document.getElementById("busquedacontacto").style.display = "block";
+    let listas1 =document.getElementById("listadocumento");                     ///ESTAS DOS LINEAS DE CODIGO BORRAN LA INFOMACION AL HACER 
+    listas1.innerHTML = "";                                                    ///CLICK EN LOS BOTONES
 }
 
 function cerrarbuscarcontacto(){
     document.getElementById("busquedacontacto").style.display = "none";
 }
+
+function MostrarModificar(){
+    document.getElementById("formularioparamodificar").style.display = "block";                                               
+}
+function cerrarModificar(){
+    document.getElementById("formularioparamodificar").style.display = "none";
+}
+
+function MostrarGuardarCambios(){
+    document.getElementById("GuardarCambios").style.display = "block";                                               
+}
+function cerrarMGuardarCambios(){
+    document.getElementById("GuardarCambios").style.display = "none";
+}
+
 
 function experimento(){
     let elemento = document.getElementById("mover");
@@ -166,6 +190,30 @@ function experimento2(){
     elemento5.style.display="flex";
     elemento5.style.justifyContent="center";
     elemento5.style.alignItems="center";
+}
+
+function experimento3(){
+    let formulario = document.getElementById("formularioparamodificar");
+    let SeccionIzquierda1 = document.getElementById("SeccionIzquierda1");
+    let SeccionDerecha1 = document.getElementById("SeccionDerecha1");
+    let GuardarCambios = document.getElementById("GuardarCambios");
+
+    formulario.style.display="flex";
+    formulario.style.justifyContent="space-around";
+    formulario.style.flexDirection="row";
+    formulario.style.height="85%";
+
+    SeccionIzquierda1.style.display="flex";
+    SeccionIzquierda1.style.flexDirection="column";
+    SeccionIzquierda1.style.justifyContent="space-evenly";
+
+    SeccionDerecha1.style.display="flex";
+    SeccionDerecha1.style.flexDirection="column";
+    SeccionDerecha1.style.justifyContent="space-evenly";
+
+    GuardarCambios.style.display="flex";
+    GuardarCambios.style.alignItems="center";
+    GuardarCambios.style.justifyContent="center";
 }
 
 function agregar() {
@@ -228,10 +276,10 @@ function consxdocu() {
     let listas1 =document.getElementById("listadocumento");
     listas1.innerHTML = "";
     if (existe){
-        listas1.innerHTML += (`La persona existe es ${existe.nombres} ${existe.apellidos} ubicada en el area ${existe.area} en el cargo ${existe.cargo} con genero ${existe.genero}`);
+        listas1.innerHTML += (`La persona existe es ${existe.nombres} ${existe.apellidos} ubicada en el area ${existe.area} en el cargo ${existe.cargo} con genero ${existe.genero} con un salario de ${existe.salario} y se encuentra ${existe.estado}: informacion de contacto correo ${existe.correo} y contacto ${existe.contacto}`);
     }
     else{
-        listas1.innerHTML += ("La persona no existe");
+        listas1.innerHTML += ("El numero de documetno no se encuentra para ningun empleado");
     }
 }
 
@@ -243,10 +291,10 @@ function consxnom() {
     listas1.innerHTML = "";
     
     if (existe){
-        listas1.innerHTML += (`La persona existe es ${existe.nombres} ${existe.apellidos} ubicada en el area ${existe.area} en el cargo ${existe.cargo} con genero ${existe.genero}`);
+        listas1.innerHTML += (`La persona existe es ${existe.nombres} ${existe.apellidos} con tipo de documento ${existe.tipodoc} y numero de documento ${existe.documento} ubicada en el area ${existe.area} en el cargo ${existe.cargo} con genero ${existe.genero} con un salario de ${existe.salario} y se encuentra ${existe.estado}: informacion de contacto correo ${existe.correo} y contacto ${existe.contacto}`);
     }
     else{
-        listas1.innerHTML += ("La persona no existe");
+        listas1.innerHTML += ("Ese nombre de empleado no se encuentra registrado");
     }
 }
 
@@ -258,10 +306,11 @@ function consxcorreo() {
     listas1.innerHTML = "";
     
     if (existe){
-        listas1.innerHTML += (`La persona existe es ${existe.nombres} ${existe.apellidos} ubicada en el area ${existe.area} en el cargo ${existe.cargo} con genero ${existe.genero}`);
+        listas1.innerHTML += (`La persona existe es ${existe.nombres} ${existe.apellidos} con tipo de documento ${existe.tipodoc} y numero de documento ${existe.documento} ubicada en el area ${existe.area} en el cargo ${existe.cargo} con genero ${existe.genero} con un salario de ${existe.salario} y se encuentra ${existe.estado}: informacion de contacto ${existe.contacto}`);
+
     }
     else{
-        listas1.innerHTML += ("La persona no existe");
+        listas1.innerHTML += ("Ese correo del empleado no se encuentra registrado para ningun empleado");
     }
 }
 
@@ -273,10 +322,107 @@ function consxcontacto() {
     listas1.innerHTML = "";
 
     if (existe){
-        listas1.innerHTML += (`La persona existe es ${existe.nombres} ${existe.apellidos} ubicada en el area ${existe.area} en el cargo ${existe.cargo} con genero ${existe.genero}`);
+        listas1.innerHTML += (`La persona existe es ${existe.nombres} ${existe.apellidos} con tipo de documento ${existe.tipodoc} y numero de documento ${existe.documento} ubicada en el area ${existe.area} en el cargo ${existe.cargo} con genero ${existe.genero} con un salario de ${existe.salario} y se encuentra ${existe.estado}: informacion de contacto correo ${existe.correo}`);
     }
     else{
-        listas1.innerHTML += ("La persona no existe");
+        listas1.innerHTML += ("Ese numero de contacto no se encuentra registrado para ningun empleado");
     }
 }
+
+//EN ESTA PARTE DEL CODIGO LO QUE HACEMOS ES UNA FUNCION LA CUAL VA A BUSCAR EL NUMERO DE DOCUMENTO LUEGO DE ESO VA A ESCRIBIR EN PANTALLA LA INFORMACION QUE SE ENCONTRO
+
+function ConsultaDocumentoModificar() {
+    let documento = document.getElementById("buscardocumento1").value;
+    let numero = Number(documento);
+    let existe = empleados.find(x=> x.documento === numero );
+
+    let DigitarNombre =document.getElementById("modificar-nombres");
+    let DigitarApellido =document.getElementById("modificar-apellidos");
+    let DigitarGenero =document.getElementById("modificar-genero");
+    let DigitarNacimiento =document.getElementById("modificar-nacimiento");
+    let DigitarArea =document.getElementById("modificar-area");
+    let DigitarCargo =document.getElementById("modificar-cargo");
+    let DigitarSalario =document.getElementById("modificar-salario");
+    let DigitarCorreo =document.getElementById("modificar-correo");
+    let DigitarContacto =document.getElementById("modificar-contacto");
+    let DigitarEstado =document.getElementById("modificar-estado");
+
+    DigitarNombre.innerHTML = "";
+    DigitarApellido.innerHTML = "";
+    DigitarGenero.innerHTML = "";
+    DigitarNacimiento.innerHTML = "";
+    DigitarArea.innerHTML = "";
+    DigitarCargo.innerHTML = "";
+    DigitarSalario.innerHTML = "";
+    DigitarCorreo.innerHTML = "";
+    DigitarContacto.innerHTML = "";
+    DigitarEstado.innerHTML = "";
+
+    if (existe){
+        DigitarNombre.innerHTML += (`${existe.nombres}`);
+        DigitarApellido.innerHTML += (`${existe.apellidos}`);
+        DigitarGenero.innerHTML += (`${existe.genero}`);
+        DigitarNacimiento.innerHTML += (`${existe.fechanacimiento}`);
+        DigitarArea.innerHTML += (`AREA: ${existe.area}`);
+        DigitarCargo.innerHTML += (`CARGO: ${existe.cargo}`);
+        DigitarSalario.innerHTML += (`SALARIO: ${existe.salario}`);
+        DigitarCorreo.innerHTML += (`${existe.correo}`);
+        DigitarContacto.innerHTML += (`${existe.contacto}`);
+        DigitarEstado.innerHTML += (`${existe.estado}`);
+
+
+    }
+    else{
+        listas1.innerHTML += ("El numero de documetno no se encuentra para ningun empleado");
+    }
+}
+
+
+
+
+function modificar(){
+    // Obtener el número de documento del empleado a modificar
+    let documento = document.getElementById("buscardocumento1").value;
+    let numero = Number(documento);
+
+    // Encontrar el empleado en el arreglo
+    let empleado = empleados.find(x=> x.documento === numero );
+
+    if (empleado) {
+
+      // Obtener los valores del formulario
+        let nombresmodificar = document.getElementById('nombresmodificar').value;
+        let apellidosmodificar = document.getElementById('apellidosmodificar').value;
+        let generomodificar = document.getElementById('generomodificar').value;
+        let nacimientomodificar = document.getElementById('nacimientomodificar').value;
+        let areamodificar = document.getElementById('areamodificar').value;
+        let cargomodificar = document.getElementById('cargomodificar').value;
+        let salariomodificar = document.getElementById('salariomodificar').value;
+        let correomodificar = document.getElementById('correomodificar').value;
+        let contactomodificar = document.getElementById('contactomodificar').value;
+        let estadoestadomodificar = document.getElementById('estadomodificar').value;
+
+      // Actualizar la información del empleado
+        empleado.nombres = nombresmodificar;
+        empleado.apellidos = apellidosmodificar;
+        empleado.genero = generomodificar;
+        empleado.fechanacimiento = nacimientomodificar;
+        empleado.area = areamodificar;
+        empleado.cargo = cargomodificar;
+        empleado.salario = salariomodificar;
+        empleado.correo = correomodificar;
+        empleado.contacto = contactomodificar;
+        empleado.estado = estadoestadomodificar;
+
+      // Mostrar la información del empleado modificado en la consola
+        console.log(empleado);
+    } else {
+        alert("El número de documento no se encuentra en ningún empleado.");
+    }
+}
+
+
+
+
+
 

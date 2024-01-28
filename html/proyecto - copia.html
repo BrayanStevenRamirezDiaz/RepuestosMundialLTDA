@@ -8,165 +8,268 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-</head>
+</head>f
 <body>
-    <nav class="navegacion">
-        <div class="primero">
+
+    
+
+
+    <nav class="navBar">
+        <div class="logoBarraNav">
             <a href=""><img class="logo" src="../img/logo_pequeñito-sin fondo.png" alt="logo"></a>
         </div>
-        <div class="segundo">
-            <ul class="listanavegacion">
-                <a class="letrasnavegacion" href="">Areas</a>
-                <a class="letrasnavegacion" href="">Cargos</a>
-                <a class="letrasnavegacion" href="">Datos Del Empleado</a>
-                <a class="letrasnavegacion" href="">Datos De Nomina</a>
-                <a class="letrasnavegacion" href="">Liquidacion</a>
+        <div class="elementosDeNavegacion">
+            <ul class="listaNavegacion">
+                <a class="letrasNavegacion "href="">Areas</a>
+                <a class="letrasNavegacion "href="">Cargos</a>
+                <a class="letrasNavegacion "href="">Datos Del Empleado</a>
+                <a class="letrasNavegacion "href="">Datos De Nomina</a>
+                <a class="letrasNavegacion " href="">Liquidacion</a>
             </ul>
         </div>
-        <div class="tercer">
-            <a href=""><img class="pequeños" src="../img/lupa blanca.png" alt="buscar"></a>
-            <a href=""><img class="pequeños" src="../img/persona blanca.png" alt="login"></a>
-            <a class="letrasnavegacion1" href="">ACERCA DE ...</a>
+        <div class="navegaconIzquierda">
+            <a href=""><img class="serchIcon" src="../img/icons8-lupa-50.png" alt="buscar"></a>
+            <a href=""><img class="serchIcon" src="../img/icons8-persona-50.png" alt="login"></a>
+            <a class="acercaDe" href="">ACERCA DE ...</a>
         </div>
     </nav>
 
-    <section class="mitad">
+    
+
+    <!-- ACA COMIENZA  EL CONTENIDO -->
+    <section class="contenedorDeAMC">
         <article>
-                <div class="encima" id="mover">
-                    <article class="primeroadentro" id="mover1">
-                        <ul class="navboton">
-                            <button id="boton1" onclick="mostrarventanagrande1(),experimento(),cerrarboton2(),cerrarboton3()" class="botones">AGREGAR EMPLEADO</button>
-                            <button id="boton2" onclick="mostrarventanagrande2(),experimento(),cerrarboton1(),cerrarboton3()" class="botones">MODIFICAR EMPLEADO</button>
-                            <button id="boton3" onclick="mostrarventanagrande(),experimento(),cerrarboton1(),cerrarboton2()"  class="botones">CONSULTAR EMPLEADO</button>
+            <!-- ESTA SECCION ES LA VENTANA DEL CENTRO PRINCIPAL DONDE ESTAN LOS BOTONES AGREGAR, MODIFICAR Y CONSULTAR -->
+                <div class="ventanaDeAMC" id="mover">
+                    <article class="contenedorBtnsAMC" id="mover1">
+                        <ul class="navBthAMC">
+                            <button id="boton1" onclick="mostrarventanagrande1(),experimento(),cerrarboton2(),cerrarboton3()" class="botonesAMC" style="--i:url(../img/nuevoempleado.svg)">AGREGAR EMPLEADO</button>
+                            <button id="boton2" onclick="mostrarventanagrande2(),experimento(),cerrarboton1(),cerrarboton3()" class="botonesAMC" style="--i:url(../img/modificarempleado.svg)">MODIFICAR EMPLEADO</button>
+                            <button id="boton3" onclick="mostrarventanagrande(),experimento(),cerrarboton1(),cerrarboton2()"  class="botonesAMC" style="--i:url(../img/consultarempleado.svg)">CONSULTAR EMPLEADO</button>
                         </ul>
+                        <!-- style="--i:url(../img/nuevoempleado.svg)" -->
+                    </article>
+                    
+
+                    <!-- Este es el cuadro de adentro cuando le damos click a consultar empleado -->
+                    <article id="ventana" class="cuadroAdentro">
+                        <!-- ESTA PARTE DEL CODIGO ES LA BUSQUEDA CUANDO SE LE DA EN CONSULTAR EMPLEADO -->
+                        <ul class="contenedorBtnsConsultarEmpleado">
+                            <button onclick="mostrarbuscardocumento(),experimento2(),cerrarbuscarcontacto(),cerrarbuscarnombre(),cerrarbuscarcorreo()" class="botonesConsultarEmpleado">Consultar por documento</button>
+
+                            <button onclick="mostrarbuscarnombre(),experimento2(),cerrarbuscarcontacto(),cerrarbuscardocumento(),cerrarbuscarcorreo()" class="botonesConsultarEmpleado">Consultar por nombre</button>
+
+                            <button onclick="mostrarbuscarcorreo(),experimento2(),cerrarbuscarcontacto(),cerrarbuscarnombre(),cerrarbuscardocumento()" class="botonesConsultarEmpleado">Consultar por correo</button>
+
+                            <button onclick="mostrarbuscarcontacto(),experimento2(),cerrarbuscarnombre(),cerrarbuscardocumento(),cerrarbuscarcorreo()" class="botonesConsultarEmpleado">Consultar por contacto</button>
+
+                        </ul>
+
+                        <!-- boton para volver atras y seleccionar otra opcion -->
+                        <button onclick="cerrarventanagrande(), mostrarboton1(), mostrarboton2(),experimento1()" class="btnVolver"><img src="../img/volver.png" alt="volver" class="imgVolver"></button>
+
+                        <!-- Eta parte coloca la barra para poder buscar por numero de documento -->
+                        <article id="busquedadocumento" class="busquedasConsultarEmpleao">
+                            <label class="letrasFormularios" for="documento">Numero de documento:</label>
+                            <input class="cuadroCambioFormulario" type="number" id="buscardocumento" name="documento"  required>
+                            <button class="botonBuscar" type="button" onclick="consxdocu()">-BUSCAR-</button>
+                        </article>
+                        <!-- Eta parte coloca la barra para poder buscar por nombre -->
+
+                        <article id="busquedanombre" class="busquedasConsultarEmpleao">
+                            <label class="letrasFormularios" for="nombres">Nombres:</label>
+                            <input class="cuadroCambioFormulario" type="text" id="nombres" name="nombres" required>
+                            <button class="botonBuscar" type="button" onclick="consxnom()">-BUSCAR-</button>
+                        </article>
+                        <!-- Eta parte coloca la barra para poder buscar por correo -->
+
+                        <article id="busquedacorreo" class="busquedasConsultarEmpleao">
+                            <label class="letrasFormularios" for="correo">Correo:</label>
+                            <input class="cuadroCambioFormulario" type="email" id="correo" name="correo" required>
+                            <button class="botonBuscar" type="button" onclick="consxcorreo()">-BUSCAR-</button>
+                        </article>
+
+                        <!-- Eta parte coloca la barra para poder buscar por contacto -->
+
+                        <article id="busquedacontacto" class="busquedasConsultarEmpleao">
+                            <label class="letrasFormularios" for="contacto">Contacto:</label>
+                            <input class="cuadroCambioFormulario" type="tel" id="contacto" name="contacto" required>
+                            <button class="botonBuscar" type="button" onclick="consxcontacto()">-BUSCAR-</button>
+                        </article>
+
+                        <!-- Este articulo es donde una vez busquemos la informacion me la va a mostrar en el html -->
+                        <article class="informacionConsultarEmpleado" id="listadocumento">
+
+                        </article>
                     </article>
 
-                    <article id="ventana" class="cuadroadentro">
-                        <ul class="navboton1">
-                            <button onclick="mostrarbuscardocumento(),experimento2(),cerrarbuscarcontacto(),cerrarbuscarnombre(),cerrarbuscarcorreo()" class="botones1">Consultar por documento</button>
-
-                            <button onclick="mostrarbuscarnombre(),experimento2(),cerrarbuscarcontacto(),cerrarbuscardocumento(),cerrarbuscarcorreo()" class="botones1">Consultar por nombre</button>
-
-                            <button onclick="mostrarbuscarcorreo(),experimento2(),cerrarbuscarcontacto(),cerrarbuscarnombre(),cerrarbuscardocumento()" class="botones1">Consultar por correo</button>
-
-                            <button onclick="mostrarbuscarcontacto(),experimento2(),cerrarbuscarnombre(),cerrarbuscardocumento(),cerrarbuscarcorreo()" class="botones1">Consultar por contacto</button>
-
-                        </ul>
-
-
-
-                        <button onclick="cerrarventanagrande(), mostrarboton1(), mostrarboton2(),experimento1()" class="volver"><img src="../img/volver.png" alt="volver" class="imgvolver"></button>
-
-                        <article id="busquedadocumento" class="busquedas">
-                            <label class="letrasformularios" for="documento">Numero de documento:</label>   
-                            <input class="cuadroformulario" type="number" id="buscardocumento" name="documento"  required>
-                            <button class="botonbuscar" type="button" onclick="consxdocu()">-BUSCAR-</button>
-                        </article>
-
-                        <article id="busquedanombre" class="busquedas">
-                            <label class="letrasformularios" for="nombres">Nombres:</label>   
-                            <input class="cuadroformulario" type="text" id="nombres" name="nombres" required> 
-                            <button class="botonbuscar" type="button" onclick="consxnom()">-BUSCAR-</button>
-                        </article>
-
-                        <article id="busquedacorreo" class="busquedas">  
-                            <label class="letrasformularios" for="correo">Correo:</label>
-                            <input class="cuadroformulario" type="email" id="correo" name="correo" required>
-                            <button class="botonbuscar" type="button" onclick="consxcorreo()">-BUSCAR-</button>
-                        </article>
-
-
-                        <article id="busquedacontacto" class="busquedas">
-                            <label class="letrasformularios" for="contacto">Contacto:</label>   
-                            <input class="cuadroformulario" type="tel" id="contacto" name="contacto" required>
-                            <button class="botonbuscar" type="button" onclick="consxcontacto()">-BUSCAR-</button>
-                        </article>
-                        <article id="listadocumento">
-
-                        </article>
 
 
 
 
+                    <!-- Este es el cuadro de adentro cuando le damos click a agregar empleado -->
+                    <article id="ventana1" class="cuadroAdentro">
+                        <form class="formularioAgregarEmpleado">
 
-                    </article>
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <article id="ventana1" class="cuadroadentro">
-                        <form class="formulario">
-                            <div class="divformu1">
-                                <label class="letrasformularios" for="tipodoc">Tipo de documento:</label>   
-                                <input class="cuadroformulario" type="text" id="tipodoc" name="tipodoc" placeholder="DOCUMENTO" required>   
-
-                                <label class="letrasformularios" for="documento">Numero de documento:</label>   
-                                <input class="cuadroformulario" type="number" id="documento" name="documento" placeholder="NUMERO DE DOCUMENTO" required>   
+                            <!-- seccion de tipo de documento y documento -->
+                            <div class="contenedorAreasDelFormulario">
+                                <label class="letrasFormularios" for="tipodoc">Tipo de documento:</label>
+                                <input class="cuadroCambioFormulario" type="text" id="tipodoc" name="tipodoc" placeholder="DOCUMENTO" required>
+<hr class="hrInternos">
+                                <label class="letrasFormularios" for="documento">Numero de documento:</label>
+                                <input class="cuadroCambioFormulario" type="number" id="documento" name="documento" placeholder="NUMERO DE DOCUMENTO" required>
                             </div>
-                            
-                            <div class="divformu1">
-                                <label class="letrasformularios" for="nombres">Nombres:</label>   
-                                <input class="cuadroformulario" type="text" id="nombres" name="nombres" placeholder="NOMBRES" required>   
-
-                                <label class="letrasformularios" for="apellidos">Apellidos:</label>   
-                                <input class="cuadroformulario" type="text" id="apellidos" name="apellidos" placeholder="APELLIDOS" required>   
+<hr class="hrExternos">
+                            <!-- seccion de nombres y apellidos del empleado -->
+                            <div class="contenedorAreasDelFormulario">
+                                <label class="letrasFormularios" for="nombres">Nombres:</label>
+                                <input class="cuadroCambioFormulario" type="text" id="nombres" name="nombres" placeholder="NOMBRES" required>
+<hr class="hrInternos">
+                                <label class="letrasFormularios" for="apellidos">Apellidos:</label>
+                                <input class="cuadroCambioFormulario" type="text" id="apellidos" name="apellidos" placeholder="APELLIDOS" required>
+                            </div>
+<hr class="hrExternos">
+                            <!-- seccion de genero --> <!-- seccion de fecha de nacimiento del empleado -->
+                            <div class="contenedorAreasDelFormulario">
+                                <label class="letrasFormularios" for="genero">Genero:</label>
+                                <input class="cuadroCambioFormulario" type="text" id="genero" name="genero" placeholder="GENERO" required>
+<hr class="hrInternos">
+                                <label class="letrasFormularios" for="nacimiento">Fecha de nacimiento:</label>
+                                <input class="cuadroCambioFormulario" type="date" id="nacimiento" name="nacimiento" placeholder="NACIMIENTO" required>
+                            </div>
+<hr class="hrExternos">
+                            <!-- seccion de area y cargo del empleado -->
+                            <div class="contenedorAreasDelFormulario">
+                                <label class="letrasFormularios" for="area">Area:</label>
+                                <input class="cuadroCambioFormulario" type="number" id="area" name="area" placeholder="AREA" required>
+<hr class="hrInternos">
+                                <label class="letrasFormularios" for="cargo">Cargo:</label>
+                                <input class="cuadroCambioFormulario" type="number" id="cargo" name="cargo" placeholder="CARGO" required>
+                            </div>
+<hr class="hrExternos">                           
+                            <!-- seccion de correo y contacto del empleado -->
+                            <div class="contenedorAreasDelFormulario">
+                                <label class="letrasFormularios" for="correo">Correo:</label>
+                                <input class="cuadroCambioFormulario" type="email" id="correo" name="correo" placeholder="CORREO" required>
+<hr class="hrInternos">
+                                <label class="letrasFormularios" for="contacto">Contacto:</label>
+                                <input class="cuadroCambioFormulario" type="tel" id="contacto" name="contacto" placeholder="CONTACTO" required>
+                            </div>
+<hr class="hrExternos">
+                            <!-- seccion de estado del empleado --><!-- seccion de salario del empleado -->
+                            <div class="contenedorAreasDelFormulario">
+                                <label class="letrasFormularios" for="estado">Estado</label>
+                                <input class="cuadroCambioFormulario" type="text" id="estado" name="estado" placeholder="ESTADO" required>
+<hr class="hrInternos">
+                                <label class="letrasFormularios" for="salario">Salario:</label>
+                                <input class="cuadroCambioFormulario" type="number" id="salario" name="salario" placeholder="SALARIO" required>
                             </div>
 
-                            <div class="divformu">
-                                <label class="letrasformularios" for="genero">Genero:</label>   
-                                <input class="cuadroformulario" type="text" id="genero" name="genero" placeholder="GENERO" required>   
-                            </div>
 
-                            <div class="divformu">
-                                <label class="letrasformularios" for="nacimiento">Fecha de nacimiento:</label>   
-                                <input class="cuadroformulario" type="date" id="nacimiento" name="nacimiento" placeholder="NACIMIENTO" required>   
-                            </div>
 
-                            <div class="divformu1">
-                                <label class="letrasformularios" for="area">Area:</label>   
-                                <input class="cuadroformulario" type="number" id="area" name="area" placeholder="AREA" required>   
 
-                                <label class="letrasformularios" for="cargo">Cargo:</label>
-                                <input class="cuadroformulario" type="number" id="cargo" name="cargo" placeholder="CARGO" required>   
-                            </div>
-
-                            <div class="divformu">
-                                <label class="letrasformularios" for="salario">Salario:</label>   
-                                <input class="cuadroformulario" type="number" id="salario" name="salario" placeholder="SALARIO" required>   
-                            </div>
-
-                            <div class="divformu1">
-                                <label class="letrasformularios" for="correo">Correo:</label>   
-                                <input class="cuadroformulario" type="email" id="correo" name="correo" placeholder="CORREO" required>   
-                            
-                                <label class="letrasformularios" for="contacto">Contacto:</label>   
-                                <input class="cuadroformulario" type="tel" id="contacto" name="contacto" placeholder="CONTACTO" required>       
-                            </div>
-
-                            <div class="divformu">
-                            <label class="letrasformularios" for="estado">Estado</label>   
-                            <input class="cuadroformulario" type="text" id="estado" name="estado" placeholder="ESTADO" required>
-                            </div>
-
-                            <div class="acomodar">
-                                <button class="botones2" type="button" onclick="agregar(),agregarempleado()">Agregar empleado</button>
+                            <!-- boton para agregar informacion del formulario -->
+                            <div class="contenedorBtnAgregarEmpleado">
+                                <button class="btnAgregarEmpleado" type="button" onclick="agregar(),agregarempleado()">Agregar empleado</button>
                             </div>
                         </form>
 
-                        <button onclick="cerrarventanagrande1(), mostrarboton2(), mostrarboton3(),experimento1()" class="volver"><img src="../img/volver.png" alt="volver" class="imgvolver"></button>
+                        <!-- boton para volver atras y seleccionar otra opcion -->
+                        <button onclick="cerrarventanagrande1(), mostrarboton2(), mostrarboton3(),experimento1()" class="btnVolver"><img src="../img/volver.png" alt="volver" class="imgVolver"></button>
                     </article>
 
-                    <article id="ventana2" class="cuadroadentro">
-                        <button onclick="cerrarventanagrande2(), mostrarboton1(), mostrarboton3(),experimento1()" class="volver"><img src="../img/volver.png" alt="volver" class="imgvolver"></button>
+
+
+
+                    <!-- Este es el cuadro de adentro cuando le damos click a modificar empleado-->
+                    <article id="ventana2" class="cuadroAdentro">
+
+                        <!-- DIV PARA COLOCAR LA SECCION DE BUSCAR POR NUMERO DE DOCUMENTO -->
+                        <div class="BuscarEmpleadoDocumento">
+                            <label class="letrasFormularios" for="documento">Numero de documento:</label>
+                            <input class="cuadroCambioFormulario" type="number" id="buscardocumento1" name="documento"  required>
+                            <button class="botonBuscar" type="button" onclick="ConsultaDocumentoModificar(),MostrarModificar(),MostrarGuardarCambios(),experimento3()">-BUSCAR-</button>
+                        </div>
+
+                        <!-- En esta seccion se mostrara la informacion del empleado buscado -->
+                            <form class="formularioParaModificarEmpleado" id="formularioparamodificar">
+                                <!-- COLOCO UNA SECCION A LA IZQUIERDA SOLO PARA TENER 5 Y 5 DATOS MAS SOLO POR ESTILO -->
+                                <div class="SeccionIzquierda" id="SeccionIzquierda1">
+                                    <!-- seccion de nombres A MODIFICAR  del empleado -->
+                                    <div class="contenedorFormularioModificarEmpleado">
+                                        <label class="letrasFormularios" for="nombres"><p id="modificar-nombres" class="LetraEncimaCambio"></p></label>
+                                        <input class="cuadroCambioFormulario" type="text" id="nombresmodificar" name="nombres" placeholder="CAMBIAR" required>
+                                    </div>
+<hr class="separadoresEnModificarEmpleado">
+                                    <!-- seccion de apellidos A MODIFICAR  del empleado -->
+                                    <div class="contenedorFormularioModificarEmpleado">
+                                        <label class="letrasFormularios" for="apellidos"><p id="modificar-apellidos" class="LetraEncimaCambio"></p></label>
+                                        <input class="cuadroCambioFormulario" type="text" id="apellidosmodificar" name="apellidos" placeholder="CAMBIAR" required>
+                                    </div>
+<hr class="separadoresEnModificarEmpleado">
+                                    <!-- seccion de genero A MODIFICAR  del empleado -->
+                                    <div class="contenedorFormularioModificarEmpleado">
+                                        <label class="letrasFormularios" for="genero"><p id="modificar-genero" class="LetraEncimaCambio"></p></label>
+                                        <input class="cuadroCambioFormulario" type="text" id="generomodificar" name="genero" placeholder="CAMBIAR" required>
+                                    </div>
+<hr class="separadoresEnModificarEmpleado">
+                                    <!-- seccion de fecha de nacimiento A MODIFICAR  del empleado -->
+                                    <div class="contenedorFormularioModificarEmpleado">
+                                        <label class="letrasFormularios" for="nacimiento"><p id="modificar-nacimiento" class="LetraEncimaCambio"></p></label>
+                                        <input class="cuadroCambioFormulario" type="date" id="nacimientomodificar" name="nacimiento" placeholder="CAMBIAR" required>
+                                    </div>
+
+<hr class="separadoresEnModificarEmpleado">   
+                                    <!-- seccion de area A MODIFICAR del empleado -->
+                                    <div class="contenedorFormularioModificarEmpleado">
+                                        <label class="letrasFormularios" for="area"><p id="modificar-area" class="LetraEncimaCambio"></p></label>
+                                        <input class="cuadroCambioFormulario" type="number" id="areamodificar" name="area" placeholder="CAMBIAR" required>
+                                    </div>
+                                </div>
+
+<hr class="hrCentral">
+                                <!-- COLOCO UNA SECCION A LA DERECHA SOLO PARA TENER 5 Y 5 DATOS MAS SOLO POR ESTILO -->
+
+                                <div class="SeccionDerecha" id="SeccionDerecha1">
+                                    <!-- seccion de cargo A MODIFICAR del empleado -->
+                                    <div class="contenedorFormularioModificarEmpleado">
+                                        <label class="letrasFormularios" for="cargo"><p id="modificar-cargo" class="LetraEncimaCambio"></p></label>
+                                        <input class="cuadroCambioFormulario" type="number" id="cargomodificar" name="cargo" placeholder="CAMBIAR" required>
+                                    </div>
+<hr class="separadoresEnModificarEmpleado">                                
+                                    <!-- seccion de salario A MODIFICAR del empleado -->
+                                    <div class="contenedorFormularioModificarEmpleado">
+                                        <label class="letrasFormularios" for="salario"><p id="modificar-salario" class="LetraEncimaCambio"></p></label>
+                                        <input class="cuadroCambioFormulario" type="number" id="salariomodificar" name="salario" placeholder="CAMBIAR" required>
+                                    </div>
+<hr class="separadoresEnModificarEmpleado">    
+                                    <!-- seccion de correo A MODIFICAR empleado -->
+                                    <div class="contenedorFormularioModificarEmpleado">
+                                        <label class="letrasFormularios" for="correo"><p id="modificar-correo" class="LetraEncimaCambio"></p></label>
+                                        <input class="cuadroCambioFormulario" type="email" id="correomodificar" name="correo" placeholder="CAMBIAR" required>
+                                    </div>
+<hr class="separadoresEnModificarEmpleado">
+                                    <!-- seccion de contacto A MODIFICAR del empleado -->
+                                    <div class="contenedorFormularioModificarEmpleado">
+                                        <label class="letrasFormularios" for="contacto"><p id="modificar-contacto" class="LetraEncimaCambio"></p></label>
+                                        <input class="cuadroCambioFormulario" type="tel" id="contactomodificar" name="contacto" placeholder="CAMBIAR" required>
+                                    </div>
+<hr class="separadoresEnModificarEmpleado">    
+                                    <!-- seccion de estado A MODIFICAR del empleado -->
+                                    <div class="contenedorFormularioModificarEmpleado">
+                                        <label class="letrasFormularios" for="estado"><p id="modificar-estado" class="LetraEncimaCambio"></p></label>
+                                        <input class="cuadroCambioFormulario" type="text" id="estadomodificar" name="estado" placeholder="CAMBIAR" required>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- boton para agregar CAMBIOS DE MODIFICAR del formulario -->
+                            <div id="GuardarCambios" class="GuardarCambios">
+                                <button onclick="modificar()" class="Boton-Guardarcambios" type="submit">Guardar cambios</button>
+                            </div>
+
+
+                        <!-- boton para volver atras y seleccionar otra opcion -->
+                        <button onclick="cerrarventanagrande2(), mostrarboton1(), mostrarboton3(),experimento1()" class="btnVolver"><img src="../img/volver.png" alt="volver" class="imgVolver"></button>
                     </article>
                 </div>
         </article>
@@ -175,27 +278,9 @@
 
 
 
+    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
     <script src="../js/proyecto.js"></script>
 </body>
 </html>

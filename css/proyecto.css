@@ -2,14 +2,6 @@
 
 
 
-
-
-
-
-
-
-
-
 *, *:before, *:after {
 	box-sizing: border-box;
 }
@@ -40,7 +32,7 @@ body {
 	
 }
 
-
+/* este es el codigo del nav bar */
 
 .navBar{
     display: flex;
@@ -53,6 +45,7 @@ body {
     top: 0;
     z-index: 200;
     border-radius: 15px;
+    margin-top: -40px;
 }
 .logo{
     width: 85px;
@@ -91,6 +84,7 @@ body {
     color:var(--Negro);
     transition-duration: 0.7s;
     font-size: 1rem;
+    transition: all 300ms;
 } 
 
 .listaNavegacion{
@@ -113,17 +107,8 @@ body {
     background-color: var(--Gris);
     transition-duration: 0.9s;
     border-radius: 8px;
+    transform: scale(1.15);
 }
-
-
-
-
-
-
-
-
-
-
 
 
 .acercaDe{
@@ -133,6 +118,10 @@ body {
     color: var(--Negro);
     text-decoration: none;
 }
+
+
+
+
 
 
 .contenedorDelTextoDeLaLandingPage{
@@ -157,22 +146,24 @@ body {
     text-align: center;
     letter-spacing: 0.5px;
     line-height: 53px;
+    margin-left: 50px;
 }
 .repuestos{
     font-family: "Poppins", sans-serif;
-    font-weight: 800;
+    font-weight: 21000;
     color: var(--Blanco);
-    font-size: 70px;
+    font-size: 100px;
     margin: 0;
+    margin-bottom: -50px;
 
 }
 .mundial{
     font-family: "Poppins", sans-serif;
     font-weight: 650;
     color: var(--Blanco);
-    font-size: 70px;
+    font-size: 80px;
     margin: 0;
-
+    margin-bottom: -50px;
 }
 .ltda{
     font-family: "Poppins", sans-serif;
