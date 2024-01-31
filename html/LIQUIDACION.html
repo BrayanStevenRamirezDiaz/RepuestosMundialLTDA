@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto Nomina</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NGB9XqFIl/dXFDvKlhr+pD7CILz9CeF5AgzPTZj+OzSJKMHeNqmlr3Xa6Uqg9D9Q" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/NOMINA.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +40,7 @@
                 <div class="ventanaDeAMC" id="mover">
                     <article class="contenedorBtnsAMC" id="mover1">
                         <ul class="navBthAMC">
-                            <button id="boton1" onclick="mostrarventanagrande1(),experimento(),cerrarboton3()" class="botonesAMC" style="--i:url(../img/agregarnomina.svg)">AGREGAR NOMINA EMPLEADO</button>
+
 
                         <!-- SE COMENTA ESTE BOTON YA QUE FUE IMPOSIBLE SOLUCIONARLO QUITARLOOOOOO -->
 
@@ -65,13 +66,14 @@
                         <article id="busquedadocumento" class="busquedasConsultarEmpleao">
                             <label class="letrasFormularios" for="documento">Numero de documento:</label>
                             <input class="cuadroCambioFormulario" type="number" id="buscardocumento" name="documento"  required>
-                            <button class="botonBuscar" type="button" onclick="ConsultarConNombres()">-BUSCAR-</button>
+                            <button class="botonBuscar" type="button" onclick="ConsultarConNombres(), MostrarGuardarCambios()">-BUSCAR-</button>
                         </article>
 
                         <!-- Este articulo es donde una vez busquemos la informacion me la va a mostrar en el html -->
-                        <article class="informacionConsultarEmpleado" id="listadocumento">
-
-                        </article>
+                        <article class="informacionConsultarEmpleado" id="listadocumento"></article>
+                        <div id="GuardarCambios" class="GuardarCambios">
+                            <button id ="downloadButton" onclick="" class="Boton-Guardarcambios" type="submit">Descargar PDF</button>
+                        </div>
                     </article>
 
 
