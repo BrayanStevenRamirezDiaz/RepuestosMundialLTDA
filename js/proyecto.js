@@ -1,6 +1,4 @@
 
-
-
 let empleados = [{
     tipodoc: "CC",
     documento: 1000129971,
@@ -10,7 +8,7 @@ let empleados = [{
     fechanacimiento: "06/01/2003",
     area: 1,
     cargo: 1,
-    salario: 10000000,
+    salario: 1300000,
     correo: "sanhenao061@gmail.com",
     contacto: 3167982313,
     estado: "ACTIVO",
@@ -58,11 +56,9 @@ let cargo = [{
 
 
 
-
 function mostrarventanagrande(){
     document.getElementById("ventana").style.display = "block";
 }
-
 function cerrarventanagrande(){
     document.getElementById("ventana").style.display = "none";
 }
@@ -109,7 +105,6 @@ function mostrarbuscardocumento(){
     listas1.innerHTML = "";                                                     ///CLICK EN LOS BOTONES
     
 }
-
 function cerrarbuscardocumento(){
     document.getElementById("busquedadocumento").style.display = "none";
 }
@@ -119,7 +114,6 @@ function mostrarbuscarnombre(){
     let listas1 =document.getElementById("listadocumento");                     ///ESTAS DOS LINEAS DE CODIGO BORRAN LA INFOMACION AL HACER 
     listas1.innerHTML = "";                                                     ///CLICK EN LOS BOTONES
 }
-
 function cerrarbuscarnombre(){
     document.getElementById("busquedanombre").style.display = "none";
 }
@@ -129,7 +123,6 @@ function mostrarbuscarcorreo(){
     let listas1 =document.getElementById("listadocumento");                     ///ESTAS DOS LINEAS DE CODIGO BORRAN LA INFOMACION AL HACER 
     listas1.innerHTML = "";                                                    ///CLICK EN LOS BOTONES
 }
-
 function cerrarbuscarcorreo(){
     document.getElementById("busquedacorreo").style.display = "none";
 }
@@ -139,7 +132,6 @@ function mostrarbuscarcontacto(){
     let listas1 =document.getElementById("listadocumento");                     ///ESTAS DOS LINEAS DE CODIGO BORRAN LA INFOMACION AL HACER 
     listas1.innerHTML = "";                                                    ///CLICK EN LOS BOTONES
 }
-
 function cerrarbuscarcontacto(){
     document.getElementById("busquedacontacto").style.display = "none";
 }
@@ -158,6 +150,20 @@ function cerrarMGuardarCambios(){
     document.getElementById("GuardarCambios").style.display = "none";
 }
 
+function MostrarGuardarCambios1(){
+    document.getElementById("GuardarCambios1").style.display = "block";                                               
+}
+function cerrarMGuardarCambios1(){
+    document.getElementById("GuardarCambios1").style.display = "none";
+}
+
+function MostrarModificar1(){
+    document.getElementById("formularioparamodificar1").style.display = "block";                                               
+}
+function cerrarModificar1(){
+    document.getElementById("formularioparamodificar1").style.display = "none";
+}
+
 
 function experimento(){
     let elemento = document.getElementById("mover");
@@ -166,8 +172,8 @@ function experimento(){
     elemento.style.justifyContent="space-around";
     elemento.style.alignItems="center";
     elemento1.style.marginTop="40px";
+    
 }
-
 function experimento1(){
     let elemento1 = document.getElementById("mover1");
     elemento1.style.marginTop="0px";
@@ -191,7 +197,6 @@ function experimento2(){
     elemento5.style.justifyContent="center";
     elemento5.style.alignItems="center";
 }
-
 function experimento3(){
     let formulario = document.getElementById("formularioparamodificar");
     let SeccionIzquierda1 = document.getElementById("SeccionIzquierda1");
@@ -215,6 +220,7 @@ function experimento3(){
     GuardarCambios.style.alignItems="center";
     GuardarCambios.style.justifyContent="center";
 }
+
 
 function agregar() {
     let tipodoc1=  document.getElementById("tipodoc").value;
@@ -422,7 +428,337 @@ function modificar(){
 }
 
 
+//SECCION DE AREA EN ESTA PARTE SE BUSCA POR CODIGO EN EL OBJETO DE AREA
+function ConsultarCodigoArea() {
+    let documento = document.getElementById("BuscarCodigoArea").value;
+    let numero = Number(documento);
+    let existe = area.find(x=> x.codigo === numero );
+    let listas1 =document.getElementById("listadocumento");
+    listas1.innerHTML = "";
+    if (existe){
+        listas1.innerHTML += (`El area existe, tiene como codigo ${existe.codigo} con la siguiente descripcion ${existe.descripcion} y se encuentra en estado ${existe.estado} `);
+    }
+    else{
+        listas1.innerHTML += ("El codgio de area no existe");
+    }
+}
+
+//ACA VAMOS A AGREGAR EL AREA
+function AgregarArea() {
+    let CodigoArea=  document.getElementById("CodigoArea").value;
+    let descripcionArea= document.getElementById("DescripcionArea").value;
+    let estadoArea= document.getElementById("EstadoArea").value;
+    
+    nuevaArea={
+        codigo: 1,
+        descripcion: "jefe supremo",
+        estado: "ACTIVO",
+    };
+
+    nuevaArea.descripcion= descripcionArea;
+    nuevaArea.codigo=CodigoArea;
+    nuevaArea.codigo = parseInt(nuevaArea.codigo);
+    nuevaArea.estado= estadoArea;
+
+    area.push(nuevaArea);
+
+    alert("Informacion guardada de manera exitosa")
+    
+}
+
+function ModificarArea(){
+    // Obtener el número de area a modificar
+    let codigo = document.getElementById("BuscarCodigoArea1").value;
+    let numero = Number(codigo);
+
+    // Encontrar el area en el arreglo
+    let areas = area.find(x=> x.codigo === numero );
+
+    if (areas) {
+
+      // Obtener los valores del formulario
+        let descripcionModificar = document.getElementById('Descripcionmodificar').value;
+        let EstadoModificar = document.getElementById('Estadomodificar').value;
+        
+
+      // Actualizar la información del area
+        areas.descripcion = descripcionModificar;
+        areas.estado = EstadoModificar;
+
+
+      // Mostrar la información del area modificado en la consola
+        alert ("Informacion modificada")
+    }
+}
 
 
 
+//  EN ESTA SECCION SE BUSCA EL CODIGO DE AREA Y MUESTRA LA INFORMACION
+function ConsultaCodigoModificar() {
+    let codigo = document.getElementById("BuscarCodigoArea1").value;
+    let numero = Number(codigo);
+    let existe = area.find(x=> x.codigo === numero );
+
+    let DigitarDescripcion =document.getElementById("modificar-descripcion");
+    let DigitarEstado =document.getElementById("modificar-estado");
+    
+
+    DigitarDescripcion.innerHTML = "";
+    DigitarEstado.innerHTML = "";
+
+    if (existe){
+        DigitarDescripcion.innerHTML += (`${existe.descripcion}`);
+        DigitarEstado.innerHTML += (`${existe.estado}`);
+    }
+    else{
+        listas1.innerHTML += ("El codigo no se encuentra para ninguna area");
+    }
+}
+
+
+
+//SECCION DE CARGO EN ESTA PARTE SE BUSCA POR CODIGO EN EL OBJETO DE  CARGO
+function ConsultarCodigoCargo() {
+    let documento = document.getElementById("BuscarCodigoCargo").value;
+    let numero = Number(documento);
+    let existe = cargo.find(x=> x.codigo === numero );
+    let listas1 =document.getElementById("listadocumento");
+    listas1.innerHTML = "";
+    if (existe){
+        listas1.innerHTML += (`El cargo existe, tiene como codigo ${existe.codigo} con la siguiente descripcion ${existe.descripcion} y se encuentra en estado ${existe.estado} `);
+    }
+    else{
+        listas1.innerHTML += ("El codigo de cargo no existe");
+    }
+}
+
+//ACA VAMOS A AGREGAR EL AREA
+function AgregarCargo() {
+    let CodigoCargo=  document.getElementById("CodigoCargo").value;
+    let descripcionCargo= document.getElementById("DescripcionCargo").value;
+    let estadoCargo= document.getElementById("EstadoCargo").value;
+    
+    nuevoCargo={
+        codigo: 1,
+        descripcion: "jefe supremo",
+        estado: "ACTIVO",
+    };
+
+    nuevoCargo.descripcion= descripcionCargo;
+    nuevoCargo.codigo=CodigoCargo;
+    nuevoCargo.codigo = parseInt(nuevoCargo.codigo);
+    nuevoCargo.estado= estadoCargo;
+
+    cargo.push(nuevoCargo);
+
+    alert("Informacion guardada de manera exitosa")
+    
+}
+
+function ModificarCargo(){
+    // Obtener el número de area a modificar
+    let codigo = document.getElementById("BuscarCodigoCargo1").value;
+    let numero = Number(codigo);
+
+    // Encontrar el area en el arreglo
+    let cargos = cargo.find(x=> x.codigo === numero );
+
+    if (cargos) {
+
+      // Obtener los valores del formulario
+        let descripcionModificar = document.getElementById('Descripcionmodificar').value;
+        let EstadoModificar = document.getElementById('Estadomodificar').value;
+        
+
+      // Actualizar la información del area
+        cargos.descripcion = descripcionModificar;
+        cargos.estado = EstadoModificar;
+
+
+      // Mostrar la información del area modificado en la consola
+        alert ("Informacion modificada")
+    }
+}
+
+
+
+//  EN ESTA SECCION SE BUSCA EL CODIGO DE AREA Y MUESTRA LA INFORMACION
+function ConsultaCodigoModificarCargo() {
+    let codigo = document.getElementById("BuscarCodigoCargo1").value;
+    let numero = Number(codigo);
+    let existe = cargo.find(x=> x.codigo === numero );
+
+    let DigitarDescripcion =document.getElementById("modificar-descripcion");
+    let DigitarEstado =document.getElementById("modificar-estado");
+    
+
+    DigitarDescripcion.innerHTML = "";
+    DigitarEstado.innerHTML = "";
+
+    if (existe){
+        DigitarDescripcion.innerHTML += (`${existe.descripcion}`);
+        DigitarEstado.innerHTML += (`${existe.estado}`);
+    }
+    else{
+        listas1.innerHTML += ("El codigo no se encuentra para ninguna area");
+    }
+}
+
+
+//ESTO SOLO CONSULTA POR NUMERO DE DOCUMENTO Y COLOCA EL NOMBRE DE LA PERSONA PARA SABER DE QUIEN HABLAMOS.
+function ConsultarDocumentoEmpleado() {
+    let documento = document.getElementById("buscardocumento1").value;
+    let numero = Number(documento);
+    let existe = empleados.find(x=> x.documento === numero );
+
+    let listas1 =document.getElementById("EmpleadoNomina");
+    listas1.innerHTML = "";
+
+    if (existe){
+        listas1.innerHTML += (`${existe.nombres} ${existe.apellidos}`);
+    }
+    else{
+        listas1.innerHTML += ("El numero de documetno no se encuentra para ningun empleado");
+    }
+}
+
+//esta funcion consulta por numero de documento y coloca el nombre de la persona
+function ConsultarDocumentoEmpleadoNomina() {
+    let documento = document.getElementById("BuscarModificarNomina").value;
+    let numero = Number(documento);
+    let existe = empleados.find(x=> x.documento === numero );
+
+    let listas1 =document.getElementById("EmpleadoNomina1");
+    listas1.innerHTML = "";
+
+    if (existe){
+        listas1.innerHTML += (`${existe.nombres} ${existe.apellidos}`);
+    }
+    else{
+        listas1.innerHTML += ("El numero de documetno no se encuentra para ningun empleado");
+    }
+}
+
+
+//esta funcion agrega los valores de los inputs y realiza el calculo de la nomina de la persona
+function AgregarNominaEmpleado(){
+    let documento = document.getElementById("buscardocumento1").value;
+    let numero = Number(documento);
+    let existe = empleados.find(x=> x.documento === numero );
+
+
+    if (existe){
+        let Numerodiaslaborados1 = document.getElementById("DiasLaborados").value;
+        let Numerodiaslaborados = Number(Numerodiaslaborados1);
+
+        let NumeroHorasEXNocturnas1 = document.getElementById("HorasExtrasNocturnas").value;
+        let NumeroHorasEXNocturnas = Number(NumeroHorasEXNocturnas1);
+
+
+        let NumeroHorasEXFestivas1 = document.getElementById("HorasExtrasFestivas").value;
+        let NumeroHorasEXFestivas = Number(NumeroHorasEXFestivas1);
+
+
+        let Salarioreal = existe.salario;
+
+
+        let Valordia = Salarioreal/30;
+        let Valorhora = Valordia/8;
+
+        let Sueldomensual = (Salarioreal*Numerodiaslaborados)/30;
+        let Horasextdomfest =  Valorhora * NumeroHorasEXFestivas * 2;
+        let Horasextnocturnas =  Valorhora * NumeroHorasEXNocturnas * 1.5;
+
+        if (Sueldomensual<2600000){
+            let Auxtransporte=162000;
+            let Totmensual= Sueldomensual+Horasextdomfest+Horasextnocturnas+Auxtransporte;
+
+            let Salud = Totmensual * 0.04;
+            let Pensión = Totmensual * 0.04;
+
+            let Devengado = Totmensual - Salud - Pensión;
+            console.log("El salario devengado del empleado con documento "+documento+" es: "+Devengado);
+            alert("Datos de nomina agregados al empleado");
+
+        }
+        else{
+            let Auxtransporte=0;
+            let Totmensual= Sueldomensual+Horasextdomfest+Horasextnocturnas+Auxtransporte;
+
+            let Salud = Totmensual * 0.04;
+            let Pensión = Totmensual * 0.04;
+
+            let Devengado = Totmensual - Salud - Pensión;
+            console.log("El salario devengado del empleado con documento "+documento+" es: "+Devengado);
+            alert("Datos de nomina agregados al empleado");
+        }
+
+    } 
+    else {
+        alert("No se encontró ningún empleado con el número de documento "+documento);
+    }
+}
+
+//CON ESTA FUNCION CONSULTAMOS POR NUMERO DE DOCUMENTO Y NOS DA LA INFOMRACION DE LA NOMINA DE ESA PERSONA
+function ConsultarConNombres() {
+    let documento = document.getElementById("buscardocumento").value;
+    let numero = Number(documento);
+    let existen = empleados.find(x=> x.documento === numero );
+    let listas1 =document.getElementById("listadocumento");
+    listas1.innerHTML = "";
+    
+    if (existen){
+        let Numerodiaslaborados1 = document.getElementById("DiasLaborados").value;
+        let Numerodiaslaborados = Number(Numerodiaslaborados1);
+
+        let NumeroHorasEXNocturnas1 = document.getElementById("HorasExtrasNocturnas").value;
+        let NumeroHorasEXNocturnas = Number(NumeroHorasEXNocturnas1);
+
+
+        let NumeroHorasEXFestivas1 = document.getElementById("HorasExtrasFestivas").value;
+        let NumeroHorasEXFestivas = Number(NumeroHorasEXFestivas1);
+
+
+        let Salarioreal = existen.salario;
+
+
+        let Valordia = Salarioreal/30;
+        let Valorhora = Valordia/8;
+
+        let Sueldomensual = (Salarioreal*Numerodiaslaborados)/30;
+        let Horasextdomfest =  Valorhora * NumeroHorasEXFestivas * 2;
+        let Horasextnocturnas =  Valorhora * NumeroHorasEXNocturnas * 1.5;
+
+        if (Sueldomensual<2600000){
+            let Auxtransporte=162000;
+            let Totmensual= Sueldomensual+Horasextdomfest+Horasextnocturnas+Auxtransporte;
+
+            let Salud = Totmensual * 0.04;
+            let Pensión = Totmensual * 0.04;
+
+            let Devengado = Totmensual - Salud - Pensión;
+            console.log("El salario devengado del empleado con documento "+documento+" es: "+Devengado);
+            listas1.innerHTML += (`${existen.nombres} ${existen.apellidos} con un salario de ${existen.salario}, Devengado total: ${Devengado}, Pension ${Pensión} y salud ${Salud}, trabajando ${Numerodiaslaborados} dias, realizo ${NumeroHorasEXNocturnas} horas extras nocturnas y ${NumeroHorasEXFestivas} horas extras festivas`);
+
+
+        }
+        else{
+            let Auxtransporte=0;
+            let Totmensual= Sueldomensual+Horasextdomfest+Horasextnocturnas+Auxtransporte;
+
+            let Salud = Totmensual * 0.04;
+            let Pensión = Totmensual * 0.04;
+
+            let Devengado = Totmensual - Salud - Pensión;
+
+            console.log("El salario devengado del empleado con documento "+documento+" es: "+Devengado);
+            listas1.innerHTML += (`${existen.nombres} ${existen.apellidos} con un salario de ${existen.salario}, Devengado total: ${Devengado}, Pension ${Pensión} y salud ${Salud}, trabajando ${Numerodiaslaborados} dias, realizo ${NumeroHorasEXNocturnas} horas extras nocturnas y ${NumeroHorasEXFestivas} horas extras festivas`);
+
+        }
+
+    }
+    else{
+        listas1.innerHTML += ("El numero de documetno no se encuentra para ningun empleado");
+    }
+}
 

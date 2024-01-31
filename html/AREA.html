@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Nomina</title>
+    <link rel="stylesheet" href="../css/AREA.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body> 
+
+    <nav class="navBar">
+        <div class="logoBarraNav">
+            <a href="../html/PRINCIPAL.html"><img class="logo" src="../img/logo_pequeñito-sin fondo.png" alt="logo"></a>
+        </div>
+        <div class="elementosDeNavegacion">
+            <ul class="listaNavegacion">
+                <a class="letrasNavegacion "href="../html/AREA.html">Areas</a>
+                <a class="letrasNavegacion "href="../html/CARGOS.html">Cargos</a>
+                <a class="letrasNavegacion "href="../html/EMPLEADOS.html">Datos Del Empleado</a>
+                <a class="letrasNavegacion "href="../html/NOMINA.html">Datos De Nomina</a>
+                <a class="letrasNavegacion " href="">Liquidacion</a>
+            </ul>
+        </div>
+        <div class="navegaconIzquierda">
+            <a href=""><img class="serchIcon" src="../img/icons8-lupa-50.png" alt="buscar"></a>
+            <a href=""><img class="serchIcon" src="../img/icons8-persona-50.png" alt="login"></a>
+            <a class="acercaDe" href="">ACERCA DE ...</a>
+        </div>
+    </nav>
+
+    
+
+    <!-- ACA COMIENZA  EL CONTENIDO -->
+    <section class="contenedorDeAMC">
+        <article>
+            <!-- ESTA SECCION ES LA VENTANA DEL CENTRO PRINCIPAL DONDE ESTAN LOS BOTONES AGREGAR, MODIFICAR Y CONSULTAR -->
+                <div class="ventanaDeAMC" id="mover">
+                    <article class="contenedorBtnsAMC" id="mover1">
+                        <ul class="navBthAMC">
+                            <button id="boton1" onclick="mostrarventanagrande1(),experimento(),cerrarboton2(),cerrarboton3()" class="botonesAMC" style="--i:url(../img/nuevarea.svg)">AGREGAR AREA</button>
+                            <button id="boton2" onclick="mostrarventanagrande2(),experimento(),cerrarboton1(),cerrarboton3()" class="botonesAMC" style="--i:url(../img/modificararea.svg)">MODIFICAR AREA</button>
+                            <button id="boton3" onclick="mostrarventanagrande(),experimento(),cerrarboton1(),cerrarboton2()"  class="botonesAMC" style="--i:url(../img/consultararea.svg)">CONSULTAR AREA</button>
+                        </ul>
+                        <!-- style="--i:url(../img/nuevoempleado.svg)" -->
+                    </article>
+                    
+
+                    <!-- Este es el cuadro de adentro cuando le damos click a consultar area -->
+                    <article id="ventana" class="cuadroAdentro">
+                        <!-- ESTA PARTE DEL CODIGO ES LA BUSQUEDA CUANDO SE LE DA EN CONSULTAR AREA -->
+                        <ul class="contenedorBtnsConsultarEmpleado">
+                            <button onclick="mostrarbuscardocumento(),experimento2(),cerrarbuscarcontacto(),cerrarbuscarnombre(),cerrarbuscarcorreo()" class="botonesConsultarEmpleado">Consultar por codigo de area</button>
+                        </ul>
+
+                        <!-- boton para volver atras y seleccionar otra opcion -->
+                        <button onclick="cerrarventanagrande(), mostrarboton1(), mostrarboton2(),experimento1()" class="btnVolver"><img src="../img/volver.png" alt="volver" class="imgVolver"></button>
+
+                        <!-- Eta parte coloca la barra para poder buscar por CODIGO DE AREA -->
+                        <article id="busquedadocumento" class="busquedasConsultarEmpleao">
+                            <label class="letrasFormularios" for="documento">Codigo de area:</label>
+                            <input class="cuadroCambioFormulario" type="number" id="BuscarCodigoArea" name="documento"  required>
+                            <button class="botonBuscar" type="button" onclick="ConsultarCodigoArea()">-BUSCAR-</button>
+                        </article>
+
+                        <!-- Este articulo es donde una vez busquemos la informacion me la va a mostrar en el html -->
+                        <article class="informacionConsultarEmpleado" id="listadocumento">
+
+                        </article>
+                    </article>
+
+
+
+
+
+                    <!-- Este es el cuadro de adentro cuando le damos click a agregar AREA -->
+                    <article id="ventana1" class="cuadroAdentro">
+                        <form class="formularioAgregarEmpleado">
+
+                            <!-- seccion de tipo codigo de area, descripcion y estado -->
+                            <div class="contenedorAreasDelFormulario">
+                                <label class="letrasFormularios" for="tipodoc">Codigo de area:</label>
+                                <input class="cuadroCambioFormulario" type="number" id="CodigoArea" name="tipodoc" placeholder="CODIGO" required>
+<hr class="hrInternos">
+                                <label class="letrasFormularios" for="documento">Descripcion de area:</label>
+                                <input class="cuadroCambioFormulario" type="text" id="DescripcionArea" name="documento" placeholder="DESCRIPCION" required>
+<hr class="hrInternos">
+                                <label class="letrasFormularios" for="tipodoc">Estado:</label>
+                                <select class="cuadroCambioFormulario" name="estado" id="EstadoArea">
+                                    <option value="Activo">Activo</option>
+                                    <option value="Inactivo">Inactivo</option>
+                                </select><br>
+                            </div>
+
+                            <!-- boton para agregar informacion del formulario -->
+                            <div class="contenedorBtnAgregarEmpleado">
+                                <button class="btnAgregarEmpleado" type="button" onclick="AgregarArea(),agregarempleado()">Agregar area</button>
+                            </div>
+                        </form>
+
+                        <!-- boton para volver atras y seleccionar otra opcion -->
+                        <button onclick="cerrarventanagrande1(), mostrarboton2(), mostrarboton3(),experimento1()" class="btnVolver"><img src="../img/volver.png" alt="volver" class="imgVolver"></button>
+                    </article>
+
+
+
+
+                    <!-- Este es el cuadro de adentro cuando le damos click a modificar AREA-->
+                    <article id="ventana2" class="cuadroAdentro">
+
+                        <!-- DIV PARA COLOCAR LA SECCION DE BUSCAR POR CODGIO DE AREA -->
+                        <div class="BuscarEmpleadoDocumento">
+                            <label class="letrasFormularios" for="documento">Codigo de area:</label>
+                            <input class="cuadroCambioFormulario" type="number" id="BuscarCodigoArea1" name="documento"  required>
+                            <button class="botonBuscar" type="button" onclick="ConsultaCodigoModificar(),MostrarModificar(),MostrarGuardarCambios(),experimento3()">-BUSCAR-</button>
+                        </div>
+
+                        <!-- En esta seccion se mostrara la informacion del area a buscar -->
+                            <form class="formularioParaModificarEmpleado" id="formularioparamodificar">
+                                <!-- COLOCO UNA SECCION A LA IZQUIERDA SOLO PARA TENER 1 Y 1 DATOS MAS SOLO POR ESTILO -->
+                                <div class="SeccionIzquierda" id="SeccionIzquierda1">
+                                    <!-- seccion de descripcion A MODIFICAR  del area -->
+                                    <div class="contenedorFormularioModificarEmpleado">
+
+                                        <label class="letrasFormularios" for="codigo"><p id="modificar-descripcion" class="LetraEncimaCambio"></p></label>
+
+                                        <input class="cuadroCambioFormulario" type="text" id="Descripcionmodificar" name="codigo" placeholder="CAMBIAR" required>
+
+                                    </div>
+                                </div>
+
+<hr class="hrCentral">
+                                <!-- COLOCO UNA SECCION A LA DERECHA SOLO PARA TENER 1 Y 1 DATOS MAS SOLO POR ESTILO -->
+
+                                <div class="SeccionDerecha" id="SeccionDerecha1">
+                                    <!-- seccion de estado A MODIFICAR -->
+                                    <div class="contenedorFormularioModificarEmpleado">
+                                        <label class="letrasFormularios" for="cargo"><p id="modificar-estado" class="LetraEncimaCambio"></p></label>
+                                        <input class="cuadroCambioFormulario" type="text" id="Estadomodificar" name="cargo" placeholder="CAMBIAR" required>
+                                    </div>
+                                </div>
+
+                            </form>
+                            <!-- boton para agregar CAMBIOS DE MODIFICAR del formulario -->
+                            <div id="GuardarCambios" class="GuardarCambios">
+                                <button onclick="ModificarArea()" class="Boton-Guardarcambios" type="submit">Guardar cambios</button>
+                            </div>
+
+
+                        <!-- boton para volver atras y seleccionar otra opcion -->
+                        <button onclick="cerrarventanagrande2(), mostrarboton1(), mostrarboton3(),experimento1()" class="btnVolver"><img src="../img/volver.png" alt="volver" class="imgVolver"></button>
+                    </article>
+                </div>
+        </article>
+    </section>
+
+
+
+
+    
+
+    
+    <script src="../js/proyecto.js"></script>
+</body>
+</html>

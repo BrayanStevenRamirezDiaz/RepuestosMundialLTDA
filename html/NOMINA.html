@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Nomina</title>
+    <link rel="stylesheet" href="../css/NOMINA.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navBar">
+        <div class="logoBarraNav">
+            <a href="../html/PRINCIPAL.html"><img class="logo" src="../img/logo_pequeñito-sin fondo.png" alt="logo"></a>
+        </div>
+        <div class="elementosDeNavegacion">
+            <ul class="listaNavegacion">
+                <a class="letrasNavegacion "href="../html/AREA.html">Areas</a>
+                <a class="letrasNavegacion "href="../html/CARGOS.html">Cargos</a>
+                <a class="letrasNavegacion "href="../html/EMPLEADOS.html">Datos Del Empleado</a>
+                <a class="letrasNavegacion "href="../html/NOMINA.html">Datos De Nomina</a>
+                <a class="letrasNavegacion " href="">Liquidacion</a>
+            </ul>
+        </div>
+        <div class="navegaconIzquierda">
+            <a href=""><img class="serchIcon" src="../img/icons8-lupa-50.png" alt="buscar"></a>
+            <a href=""><img class="serchIcon" src="../img/icons8-persona-50.png" alt="login"></a>
+            <a class="acercaDe" href="">ACERCA DE ...</a>
+        </div>
+    </nav>
+
+    
+
+    <!-- ACA COMIENZA  EL CONTENIDO -->
+    <section class="contenedorDeAMC">
+        <article>
+            <!-- ESTA SECCION ES LA VENTANA DEL CENTRO PRINCIPAL DONDE ESTAN LOS BOTONES AGREGAR, MODIFICAR Y CONSULTAR -->
+                <div class="ventanaDeAMC" id="mover">
+                    <article class="contenedorBtnsAMC" id="mover1">
+                        <ul class="navBthAMC">
+                            <button id="boton1" onclick="mostrarventanagrande1(),experimento(),cerrarboton3()" class="botonesAMC" style="--i:url(../img/agregarnomina.svg)">AGREGAR NOMINA EMPLEADO</button>
+
+                        <!-- SE COMENTA ESTE BOTON YA QUE FUE IMPOSIBLE SOLUCIONARLO QUITARLOOOOOO -->
+
+                            
+
+                            <button id="boton3" onclick="mostrarventanagrande(),experimento(),cerrarboton1()"  class="botonesAMC" style="--i:url(../img/consultarnomina.svg)">CONSULTAR NOMINA EMPLEADO</button>
+                        </ul>
+                        <!-- style="--i:url(../img/nuevoempleado.svg)" -->
+                    </article>
+                    
+
+                    <!-- Este es el cuadro de adentro cuando le damos click a consultar empleado -->
+                    <article id="ventana" class="cuadroAdentro">
+                        <!-- ESTA PARTE DEL CODIGO ES LA BUSQUEDA CUANDO SE LE DA EN CONSULTAR EMPLEADO -->
+                        <ul class="contenedorBtnsConsultarEmpleado">
+                            <button onclick="mostrarbuscardocumento(),experimento2()" class="botonesConsultarEmpleado">Consultar por documento</button>
+                        </ul>
+
+                        <!-- boton para volver atras y seleccionar otra opcion -->
+                        <button onclick="cerrarventanagrande(), mostrarboton1(),experimento1()" class="btnVolver"><img src="../img/volver.png" alt="volver" class="imgVolver"></button>
+
+                        <!-- Eta parte coloca la barra para poder buscar por numero de documento -->
+                        <article id="busquedadocumento" class="busquedasConsultarEmpleao">
+                            <label class="letrasFormularios" for="documento">Numero de documento:</label>
+                            <input class="cuadroCambioFormulario" type="number" id="buscardocumento" name="documento"  required>
+                            <button class="botonBuscar" type="button" onclick="ConsultarConNombres()">-BUSCAR-</button>
+                        </article>
+
+                        <!-- Este articulo es donde una vez busquemos la informacion me la va a mostrar en el html -->
+                        <article class="informacionConsultarEmpleado" id="listadocumento">
+
+                        </article>
+                    </article>
+
+
+
+
+
+                    <!-- Este es el cuadro de adentro cuando le damos click a agregar Nomina -->
+                    <article id="ventana1" class="cuadroAdentro">
+
+                        <!-- Buscamos la persona que queremos agregar la nomina por numero de documento -->
+                        <div class="BuscarEmpleadoDocumento">
+                            <label class="letrasFormularios" for="documento">Numero de documento:</label>
+                            <input class="cuadroCambioFormulario" type="number" id="buscardocumento1" name="documento"  required>
+                            <button class="botonBuscar" type="button" onclick="ConsultarDocumentoEmpleado(),MostrarModificar(),MostrarGuardarCambios()">-BUSCAR-</button>
+                        </div>
+
+                        <!-- EN ESTE DIV LO QUE SALDRA ES EL NOMBRE DEL EMPLEADO QUE SE LE VAN A AGREGAR LOS DATOS DE NOMINA -->
+                        <div id="EmpleadoNomina" class="nombreDelEmpleado">
+
+                        </div>
+                        <!-- En esta seccion se mostrara la informacion del empleado buscado -->
+                            <form class="formularioParaModificarEmpleado" id="formularioparamodificar">
+                                
+                                <!-- MODIFICAR VENTANA IZQUIERDA YA SOLO QUEDAN 3 OPCIONES -->
+                                <div class="SeccionIzquierda" id="SeccionIzquierda1">
+
+                                    <!-- seccion de Agregar dias laborados  del empleado -->
+                                    <div class="contenedorFormularioModificarEmpleado">
+                                        <label class="letrasFormularios" ><p class="LetraEncimaCambio">DIAS LABORADOS</p></label>
+                                        <input class="cuadroCambioFormulario" type="number" id="DiasLaborados"  placeholder="TOTAL" required>
+                                    </div>
+
+<hr class="separadoresEnModificarEmpleado">
+                                    <!-- seccion de Agregar horas extras nocturnas del empleado -->
+                                    <div class="contenedorFormularioModificarEmpleado">
+                                        <label class="letrasFormularios" ><p class="LetraEncimaCambio">HORAS EXTRAS NOCTURNAS</p></label>
+                                        <input class="cuadroCambioFormulario" type="number" id="HorasExtrasNocturnas"  placeholder="TOTAL" required>
+                                    </div>
+
+<hr class="separadoresEnModificarEmpleado">
+                                    <!-- seccion de Agregar horas extras festivas del empleado -->
+                                    <div class="contenedorFormularioModificarEmpleado">
+                                        <label class="letrasFormularios"><p class="LetraEncimaCambio">HORAS EXTRAS FESTIVAS</p></label>
+                                        <input class="cuadroCambioFormulario" type="number" id="HorasExtrasFestivas" placeholder="TOTAL" required>
+                                    </div>
+
+<hr class="separadoresEnModificarEmpleado">
+                                </div>
+                                
+                            </form> 
+                            <!-- boton para agregar CAMBIOS DE MODIFICAR del formulario -->
+                            <div id="GuardarCambios" class="GuardarCambios">
+                                <button onclick="AgregarNominaEmpleado()" class="Boton-Guardarcambios" type="submit">Guardar cambios</button>
+                            </div>
+
+                        <!-- boton para volver atras y seleccionar otra opcion -->
+                        <button onclick="cerrarventanagrande1(), mostrarboton3(),experimento1()" class="btnVolver"><img src="../img/volver.png" alt="volver" class="imgVolver"></button>
+                    </article>  
+        </article>
+    </section>
+
+
+
+
+    
+
+    
+    <script src="../js/proyecto.js"></script>
+</body>
+</html>

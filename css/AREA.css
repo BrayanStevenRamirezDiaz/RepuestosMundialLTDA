@@ -1,0 +1,432 @@
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+:root {
+    --Principal: #e73c2c;
+    --Blanco: #ffffff;
+    --Negro: #0a0a0a;
+    --Gris: #b5b5b5;
+    --Azul: #30C5FF;
+    --AzulOcusro: #0f4c81;
+}
+ 
+body {
+    background-color:aliceblue;
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	        align-items: center;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	        flex-direction: column;
+	height: 100vh;
+	width: 100%;
+    margin: 0;
+    gap: 70px;
+}
+
+
+
+
+
+
+/* navbar de la web */
+.navBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    background-color: var(--Azul);
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    border-radius: 15px;
+    margin-top: -45px;
+}
+.logo{
+    width: 85px;
+    height: 85px;
+}
+
+.landigPage {
+    width: 100%;
+    height: 700px;
+    z-index: 50;
+}
+
+.serchIcon{
+    width: 25px;
+    height: 25px;
+    top: 0;
+    left: 99px;
+    object-fit: cover;
+}
+.elementosDeNavegacion{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-left: 20px;
+    flex-direction: column;
+    gap: 20px;
+}
+.letrasNavegacion{
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    color: var(--Negro);
+    text-decoration: none;
+
+    align-items: center;
+    text-decoration: none;
+    color:var(--Negro);
+    transition-duration: 0.7s;
+    font-size: 1rem;
+} 
+
+.listaNavegacion{
+    display: flex;
+    gap: 150px;
+    transition: all 300ms;
+}
+.navegaconIzquierda{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+    padding-left: 100px;
+    padding-right: 20px;
+    
+}
+
+
+
+.letrasNavegacion:hover{
+    background-color: var(--AzulOcusro);
+    transition-duration: 0.9s;
+    border-radius: 8px;
+    transform: scale(1.15);
+}
+
+
+.acercaDe{
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--Negro);
+    text-decoration: none;
+}
+
+
+
+
+/* Cuandro de agregar modificar y consultar */
+
+.contenedorDeAMC{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:aliceblue;
+    
+}
+.ventanaDeAMC{    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 180vh;
+    height: 80vh;
+    border: 1px solid var(--Principal);
+    border-radius: 20px;
+}
+
+.navBthAMC{
+    padding: 0;
+    gap: 70px;
+    height: 300px; 
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+.navBthAMC button:hover {
+    transform: scale(1.15);
+}
+
+.botonesAMC{
+    border: 0;
+    width: 300px;
+    height: 100%;
+    border-radius: 15px;
+    font-family: "Poppins", sans-serif;
+    color: var(--Azul);
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: 600;
+    background: var(--i);
+    background-size: cover;
+    border: 1px solid var(--Principal);
+    box-shadow: 3px 5px 5px rgb(3, 32, 51, .8);
+    transition: all 300ms;
+   
+}
+.cuadroAdentro{
+    padding: 50px;
+    width: 140vh;
+    height: 70vh;
+    border: 1px solid var(--Principal);
+    border-radius: 40px;
+    display: none;
+}
+
+.botonesConsultarEmpleado{
+    background-color: var(--Azul);
+    border: 0;
+    width: 35vh;
+    height: 5vh;
+    border-radius: 15px;
+    font-family: "Poppins", sans-serif;
+    color: var(--Blanco);
+    font-size: 1.7vh;
+    cursor: pointer;
+    font-weight: 600;
+}
+.contenedorBtnsConsultarEmpleado{
+    padding: 0;
+    height: 7vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+
+.contenedorBtnsAMC{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+    
+}
+
+
+/* btn de volver */
+
+.btnVolver{    
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+
+}
+
+.imgvolver{
+    width: 10px;
+    height: 10px;
+}
+
+
+/* Formulario Agregar Empleado */
+
+
+.formularioAgregarEmpleado{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.contenedorAreasDelFormulario{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    justify-content: center;
+    align-items: center; 
+    margin-top: 10%;
+}
+
+.hrExternos {
+    margin: 0;
+    padding: 0;
+    width: 125vh;
+}
+.hrInternos {
+    margin-left: 2vh;
+    margin-right: 2vh;
+    height: 40px;
+}
+
+
+
+.letrasFormularios{
+    color: var(--Negro);
+    border: none;
+    width: 200px;
+    height: 20px;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    white-space:  nowrap;
+    padding-right: 30px;
+}
+.cuadroCambioFormulario{
+    background-color: var(--Azul);
+    color: var(--Negro);
+    border: none;
+    width: 200px;
+    height: 25px;
+    font-family: "Poppins", sans-serif;
+    border-radius: 20px;
+    
+
+}
+::placeholder{
+    color: var(--Negro);
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+
+
+/* Btn agregar empleado 
+ */
+.contenedorBtnAgregarEmpleado{
+    display: flex;
+    justify-content: center;
+}
+.btnAgregarEmpleado{
+    background-color: var(--Azul);
+    border: 0;
+    width: 20vh;
+    height: 4vh;
+    border-radius: 20px;
+    font-family: "Poppins", sans-serif;
+    color: var(--Blanco);
+    font-size: 1.7vh;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+/* Buscar informacion del empleado */
+
+
+.busquedasConsultarEmpleao{
+    margin-top: 40px;
+    gap: 30px;
+    display: none;
+}
+.botonBuscar{
+    background-color: var(--Azul);
+    border: 0;
+    width: 11vh;
+    height: 3vh;
+    border-radius: 20px;
+    font-family: "Poppins", sans-serif;
+    color: #ffffff;
+    font-size: 1.7vh;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+/* ESTA PARTE DE CSS CENTRAN LOS DATOS QUE MUESTRA EL HTML LUEGO DE INTRODUCIR LA BUSQUEDA POR JS*/
+.informacionConsultarEmpleado{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 60px;
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    /* border: 1px solid var(--Negro); */
+    border-radius: 10px;
+}
+
+
+.BuscarEmpleadoDocumento{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 20px;
+    gap: 30px;
+    
+}
+.LetraEncimaCambio{
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding-right: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+.formularioParaModificarEmpleado{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    height: 85%;
+    display: none;
+}
+.separadoresEnModificarEmpleado {
+    width: 40vh;
+}
+.hrCentral {
+    margin: 0;
+    padding: 0;
+}
+
+.contenedorFormularioModificarEmpleado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* LA SECCION IZQUIERDA Y DERECHA SON SOLO PARA ORGANIZAR EL FORMULARIO BONITO */
+.SeccionIzquierda{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.SeccionDerecha{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.GuardarCambios{
+    display: none;
+}
+.Boton-Guardarcambios{
+    background-color: var(--Azul);
+    margin-top: 20px ;
+    border: 0;
+    border-radius: 20px;
+    font-family: "Poppins", sans-serif;
+    color: var(--Blanco);
+    font-size: 1.7vh;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
